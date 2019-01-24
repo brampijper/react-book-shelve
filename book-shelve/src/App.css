@@ -1,1 +1,11 @@
+.center-align {
+  text-align:center;
+}
 
+.search-input {
+  width: 85%;
+}
+
+.center-elements {
+  display:inline-block;
+}
