@@ -1,0 +1,15 @@
+.center-align {
+    text-align:center;
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .search-input {
+    width: 85%;
+    height:40px;
+    font-size:14pt;
+  }
+  
+  .center-elements {
+    display:inline-block;
+  }
+
