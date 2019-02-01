@@ -13,19 +13,10 @@ function SearchBarComponent(props) {
                     name="searchTerm"
                     onChange={props.handleChange}
                     value={props.searchTerm}
-                />
-                
-                <ul className="search-results">
-                {props.searchResults.map(item => 
-                    <li
-                        key={item.key}>
-                            {item.title}
-                    </li>
-                )}
-                </ul>
+                />                
             </div>
         </div>
     )
 }
 
-export default SearchBarComponent
+export default SearchBarComponent   

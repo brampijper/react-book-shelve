@@ -1,15 +1,17 @@
 import React, {Component} from 'react'
 import SearchBarComponent from './SearchBarComponent'
 import _ from 'lodash'
+import SearchSuggestions from './SearchSuggestions';
 
 class SearchBar extends Component {
     constructor() {
         super()
         this.state = {
             searchTerm: '',
-            searchResults: []
+            searchResults: [],
+            filterResults: []
         }
-        this.delayedCallback = _.debounce(this.searchBooks, 500)
+        this.delayedCallback = _.debounce(this.searchBooks, 250)
     }
 
     handleChange = (event) => {
@@ -24,19 +26,26 @@ class SearchBar extends Component {
         fetch(`http://openlibrary.org/search.json?title=${value}`)
         .then(response => response.json()
         .then(response => {
-            console.log(response.docs)
             this.setState({ searchResults: response.docs})
+            const suggestionItems = response.docs.slice(0,5).map(book => {
+                return <SearchSuggestions key={book.id} book={book} />
+            })
+            return suggestionItems
+
         }))
     }
     
     render() {
         return (
-            <SearchBarComponent
-                handleChange={this.handleChange}
-                searchTerm={this.state.searchTerm}
-                searchResults={this.state.searchResults}    
-            />
-            
+            <div> 
+                <SearchBarComponent
+                    handleChange={this.handleChange}
+                    searchTerm={this.state.searchTerm}    
+                />
+                <ul className="search-results">
+                    {this.suggestionsItems}
+                </ul>
+            </div> 
         )
     }
 }
