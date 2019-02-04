@@ -5,7 +5,7 @@ function SearchBarComponent(props) {
     return (
         <div className="center-align">
             <div className="center-elements">
-                <h1> Search for your favourite books</h1>
+                <h1> Search your favourite books</h1>
                 <input
                     className="search-input center-align"
                     type="text"

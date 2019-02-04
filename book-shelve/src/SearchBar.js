@@ -9,7 +9,6 @@ class SearchBar extends Component {
         this.state = {
             searchTerm: '',
             searchResults: [],
-            filterResults: []
         }
         this.delayedCallback = _.debounce(this.searchBooks, 250)
     }
@@ -27,11 +26,6 @@ class SearchBar extends Component {
         .then(response => response.json()
         .then(response => {
             this.setState({ searchResults: response.docs})
-            const suggestionItems = response.docs.slice(0,5).map(book => {
-                return <SearchSuggestions key={book.id} book={book} />
-            })
-            return suggestionItems
-
         }))
     }
     
@@ -42,9 +36,9 @@ class SearchBar extends Component {
                     handleChange={this.handleChange}
                     searchTerm={this.state.searchTerm}    
                 />
-                <ul className="search-results">
-                    {this.suggestionsItems}
-                </ul>
+                <SearchSuggestions
+                    searchResults={this.state.searchResults}
+                />
             </div> 
         )
     }

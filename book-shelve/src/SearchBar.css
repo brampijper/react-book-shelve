@@ -4,7 +4,7 @@
   }
   
   .search-input {
-    width: 85%;
+    width: 88.5%;
     height:40px;
     font-size:14pt;
   }
@@ -13,3 +13,34 @@
     display:inline-block;
   }
 
+  .search-suggestions {
+    list-style-type:none;
+    padding: 0;
+    margin: 0;
+    width:359px;
+  }
+
+  .search-suggestions a {
+    font-size: 14px;
+    text-decoration: none;
+    color: black;
+  }
+
+  .list-results li {
+    border: 1px solid #cccccc;
+    border-top:none;
+    padding: 15px 0px;
+    margin: 0 auto;
+    -webkit-appearance: textfield;
+  }
+
+  .list-results li:hover {
+    background-color:#e2e0e0;
+    cursor:pointer;
+  }
+
+  @media only screen and (max-width: 420px) {
+    .search-suggestions {
+      width: 90%;
+    }
+  }

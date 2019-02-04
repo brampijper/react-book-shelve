@@ -1,10 +1,20 @@
 import React from 'react'
 
 function SearchSuggestions(props) {
+    console.log(props)
     return (
-        <li key={props.key}>
-            {props.book.title + ' - ' + props.book.author_name}
-        </li>
+        <div className="center-align">
+            <ul className="center-elements search-suggestions">
+                {props.searchResults.splice(0,5).map(book => (
+                    
+                    <a href="#" className="list-results">
+                        <li key={book.cover_i} > 
+                            {book.title + ' - ' + book.author_name} 
+                        </li>
+                    </a>
+                ))} 
+            </ul>
+        </div> 
     )
 }
 
