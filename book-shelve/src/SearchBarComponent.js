@@ -8,6 +8,7 @@ function SearchBarComponent(props) {
                 <h1> Search your favourite books</h1>
                 <input
                     className="search-input center-align"
+                    autoComplete="off"
                     type="text"
                     placeholder="Search on titles, author, bsn number..."
                     name="searchTerm"

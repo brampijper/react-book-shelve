@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import SearchBarComponent from './SearchBarComponent'
 import _ from 'lodash'
 import SearchSuggestions from './SearchSuggestions';
+import BookListComponent from './BookListComponent';
 
 class SearchBar extends Component {
     constructor() {
@@ -9,8 +10,9 @@ class SearchBar extends Component {
         this.state = {
             searchTerm: '',
             searchResults: [],
+            bookList: [],
         }
-        this.delayedCallback = _.debounce(this.searchBooks, 250)
+        this.delayedCallback = _.debounce(this.searchBooks, 500)
     }
 
     handleChange = (event) => {
@@ -38,6 +40,10 @@ class SearchBar extends Component {
                 />
                 <SearchSuggestions
                     searchResults={this.state.searchResults}
+                />
+
+                <BookListComponent
+                    bookList={this.state.bookList}
                 />
             </div> 
         )

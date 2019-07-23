@@ -7,9 +7,9 @@ function SearchSuggestions(props) {
             <ul className="center-elements search-suggestions">
                 {props.searchResults.splice(0,5).map(book => (
                     
-                    <a href="#" className="list-results">
-                        <li key={book.cover_i} > 
-                            {book.title + ' - ' + book.author_name} 
+                    <a href="#" className="list-results" key={book.key}>
+                        <li > 
+                            {book.title + ' - ' + book.author_name}
                         </li>
                     </a>
                 ))} 
